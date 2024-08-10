@@ -77,6 +77,9 @@ long int call_operation(long int *first_operand, char *operator, long int *secon
     case '^':
         return power(first_operand, second_operand);
         break;
+    case 's':ma
+        return root(first_operand, second_operand);
+        break;
 
     default:
         break;
@@ -103,6 +106,10 @@ long int division(long int *first_operand, long int *second_operand){
 long int power(long int *first_operand, long int *second_operand){
     return (pow(*first_operand, *second_operand));
 }
+long int root(long int *first_operand, long int *second_operand){
+    return sqrtl(*second_operand);
+}
+
 
 
 
