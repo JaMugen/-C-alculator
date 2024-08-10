@@ -55,8 +55,8 @@ void user_input(long int *first_operand, char *operator, long int *second_operan
     //printf("%ld\n", *first_operand);
     scanf(" %c", operator); //added a space so that the newline value from previous scanf is not accepted as input.
     scanf(" %ld", second_operand);
-    // scanf read the ouput as is so these scanf as each value entered or as one sentence with each value spaced. 
-    //Evident by previous comment where scanf was reading the /n when the leading space was not placed to pass it.
+    //scanf reads all of input as is. It will also buffer input data. FOr example "+ 9" can be entered to fill in each scanf call.
+    //Caused an issue where the the buffered /n was being assigned as the input value so the leading space avoids that issue.
 
     while (getchar() != '\n'); //used to remove any characters from the buffer.
     return;
