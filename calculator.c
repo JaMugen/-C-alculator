@@ -10,7 +10,7 @@ long int subtraction(long int *first_operand, long int *second_operand);
 long int multiplication(long int *first_operand, long int *second_operand);
 long int division(long int *first_operand, long int *second_operand);
 long int power(long int *first_operand, long int *second_operand);
-long int root(long int *first_operand, long int *second_operand);
+long int root(long int *second_operand);
 
 int main(void)
 {
@@ -43,9 +43,16 @@ void user_input(long int *first_operand, char *operator, long int *second_operan
         return;
     }
 
+    if(strcmp(temp_input, "s") == 0){ //if statement for setting up the unique square root operation then early returns.
+        *operator = 's';
+        scanf(" %ld", second_operand);
+        while (getchar() != '\n');
+        return;
+    }
+
     *first_operand = atoi(temp_input);
     //scanf(" %ld", first_operand);
-    printf("%ld\n", *first_operand);
+    //printf("%ld\n", *first_operand);
     scanf(" %c", operator); //added a space so that the newline value from previous scanf is not accepted as input.
     scanf(" %ld", second_operand);
     // scanf read the ouput as is so these scanf as each value entered or as one sentence with each value spaced. 
@@ -77,8 +84,8 @@ long int call_operation(long int *first_operand, char *operator, long int *secon
     case '^':
         return power(first_operand, second_operand);
         break;
-    case 's':ma
-        return root(first_operand, second_operand);
+    case 's':
+        return root(second_operand);
         break;
 
     default:
@@ -106,7 +113,7 @@ long int division(long int *first_operand, long int *second_operand){
 long int power(long int *first_operand, long int *second_operand){
     return (pow(*first_operand, *second_operand));
 }
-long int root(long int *first_operand, long int *second_operand){
+long int root(long int *second_operand){
     return sqrtl(*second_operand);
 }
 
